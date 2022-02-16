@@ -92,11 +92,14 @@ io.on('connection', (socket) => {
     // emit welcome message event
     socket.emit('welcome-message', {
       user: 'server',
-      message: `Bem vindo ao Chatzin dos Cria ${data.username}. There are ${
+      message: `Bem vindo ao Chatzin dos Cria ${data.username}. Existem ${
         Object.keys(users).length
-      } users connected`,
+      } usuarios conectados connected`,
     })
   })
+
+  
+  
   
   
   
@@ -113,4 +116,4 @@ io.on('connection', (socket) => {
 })
 
 
-
+//
