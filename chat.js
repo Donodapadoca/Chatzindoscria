@@ -16,7 +16,7 @@ console.log('chat.js file loaded!')
 var socket = io.connect()
 
 //prompt to ask user's name
-const username = prompt('Welcome! Please enter your name:')
+const username = prompt('Olá pode dizer quem é você ?')
 
 // emit event to server with the user's name
 socket.emit('new-connection', { username })
@@ -90,3 +90,5 @@ socket.on('broadcast-message', (data) => {
   // appends message in chat container, with isSelf flag false
   addMessage(data, false)
 })
+
+
