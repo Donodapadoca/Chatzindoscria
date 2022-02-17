@@ -1,3 +1,8 @@
+
+
+
+
+
 var http = require('http')
 var fs = require('fs')
 var path = require('path')
@@ -37,7 +42,7 @@ function requestHandler(request, response) {
         })
       } else {
         response.writeHead(500)
-        response.end('Sorry, there was an error: ' + error.code + ' ..\n')
+        response.end('Desculpa parece que ocorreu um erro: ' + error.code + ' ..\n')
       }
     } else {
       response.writeHead(200, { 'Content-Type': contentType })
@@ -69,13 +74,6 @@ const io = require('socket.io')(app, {
   })
 
   
-
-
-
-// FILE: server.js
-
-//...
-
 // To save the list of users as id:username
 var users = {}
 
@@ -90,20 +88,26 @@ io.on('connection', (socket) => {
     users[socket.id] = data.username
     console.log('users :>> ', users)
     // emit welcome message event
-    socket.emit('welcome-message', {
+    socket.emit('broadcast-message', {
       user: 'server',
-      message: `Bem vindo ao Chatzin dos Cria ${data.username}. Existem ${
+      //mensagem inicial de boas vindas
+      message: `Bem vinde ao Chatzin dos Cria, ${data.username}. 
+      No momento temos, ${
+        Object.keys(users).length //usuarios conectados
+      } usuarios conectados `,
+    })
+
+
+    socket.broadcast.emit('broadcast-message', {
+      user: 'server',
+      message:  `Novo usuário conectado: ${data.user}. 
+      No momento, ${
         Object.keys(users).length
-      } usuarios conectados connected`,
+      } usuário(s) estão conectados`,
     })
   })
 
-  
-  
-  
-  
-  
-
+     
   // handles message posted by client
   socket.on('new-message', (data) => {
     console.log(`👾 new-message from ${data.user}`)
@@ -113,7 +117,6 @@ io.on('connection', (socket) => {
       message: data.message,
     })
   })
+  
 })
 
-
-//
