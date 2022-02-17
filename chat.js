@@ -16,7 +16,7 @@ console.log('chat.js file loaded!')
 var socket = io.connect()
 
 //prompt to ask user's name
-const username = prompt('Olá pode dizer quem é você ?')
+const username = prompt('Olá pode nós dizer seu nome ??')
 
 // emit event to server with the user's name
 socket.emit('new-connection', { username })
@@ -85,6 +85,8 @@ messageForm.addEventListener('submit', (e) => {
   }
 })
 
+
+
 socket.on('broadcast-message', (data) => {
   console.log('📢 broadcast-message event >> ', data)
   // appends message in chat container, with isSelf flag false
@@ -92,4 +94,4 @@ socket.on('broadcast-message', (data) => {
 })
 
 
-//
+
