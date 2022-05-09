@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
-      body{
-        background-color: #A9A9A9;
 
-    
-      }
-      h1 {
-        background-color: #696969;
-      } 
+
+    <!-- link para o estilos.css-->
+    <link rel="stylesheet" href="estilos.css">
+          
 
       
-    </style>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat app</title>
@@ -25,82 +21,8 @@
     <!-- Script to emit/receive events from socket.io server -->
     <script defer src="chat.js"></script>
 
-    <!-- Stylesheet -->
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        box-sizing: border-box;
-        
-      }
-      #app {
-        width: 85vw;
-        margin: 0 auto;
-      }
-      #chatContainer {
-        height: 75vh;
-        border: 3px solid #0c0c0c;
-        border-radius: 10px;
-        margin: 1rem 1rem;
-        padding: 0.5rem;
-        overflow: scroll;
-        background-color: #696969;
-      }
-      #messageForm {
-        width: 80%;
-        position: absolute;
-        bottom: 10px;
-      }
-      .input {
-        margin: auto;
-        padding: 0.5rem;
-        margin: 0 0.5rem;
-        width: 70%;
-        border: 3px solid #4F4F4F;
-        border-radius: 3px;
-        background-color: #0c0c0c;
-        color: #fcfafa;
-      }
-      .input:active,
-      .input:focus {
-        border-color: #363636;
-      }
-
-      .btn {
-        padding: 0.5rem;
-        background-color: #778899;
-        border: 1px solid #1C1C1C;
-        border-radius: 5px;
-        color: #fcfafa;
-        font-weight: 600;
-      }
-      .center {
-        text-align: center;
-        margin: 0 auto;
-      }
-      .error {
-        border-color: #fa7962 !important;
-      }
-      /* default message styling for server notifications */
-      .message {
-        background-color: #DCDCDC;
-        color: #333;
-        font-size: 1.2rem;
-        text-align: center;
-        border-radius: 5px;
-        padding: 0.5rem;
-        margin-top: 1rem;
-      }
-      /* change colors and alignment for self and others messages */
-      .self-message {
-        background-color: #7ef197;
-        text-align: right;
-      }
-      .others-message {
-        background-color: rgb(82, 250, 250);
-        text-align: left;
-      }
-    </style>
-  </head>
+    
+    </head>
   <body>
     <div id="app">
       <h1 class="center">Chatzin dos Cria</h1>
@@ -114,7 +36,7 @@
       <div class="center">
         <form id="messageForm">
           <input class="input center" type="text" id="messageInput" />
-          <button class="btn" type="submit" id="sendBtn">Send!</button>
+          <button class="btn" type="submit" id="sendBtn">Enviar!</button>
         </form>
       </div>
     </div>
